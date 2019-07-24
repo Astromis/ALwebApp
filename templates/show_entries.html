@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+    <form action="{{ url_for('wsd_compute') }}" method=post class=add-entry>
+      <dl>
+        <dt>Passage:
+        <dd><textarea name=passage rows=5 cols=40></textarea>
+        <dt>Word:
+        <dd><input type=text size=30 name=quary>
+        <dd><input type=submit value=Submit>
+      </dl>
+    </form>
+  <ul class=entries>
+  {%if synonyms != ''%}
+
+  <h2 >Synonyms:</h2> <p>{{synonyms}}</p>
+  <h2 >Best definition:</h2>
+  <p>{{best_def}}</p>
+  
+  <table>
+    <tr><td style="font-weight:bold">Definitions</td><td style="font-weight:bold">Probab.</td></tr>
+  {% for key, value in defs.items() %}
+    <tr><td>{{key}}</td><td>{{value}}</td></tr>
+  {% endfor %}
+  </table>
+  </ul>
+  {%endif%}
+{% endblock %}

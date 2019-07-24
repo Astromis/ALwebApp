@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+    <form action="{{ url_for('next_sampl') }}" method=post class=add-entry>
+      <dl>
+        <dt>Source text:
+        <dd>{{text}}
+        <dt>Sentences:
+            <br>{{sentence}}
+      </dl>
+      <input type="submit" name="submit_button" value="SKIP">
+      <input type="submit" name="submit_button" value="0">
+      <input type="submit" name="submit_button" value="1">
+    </form>
+{% endblock %}
